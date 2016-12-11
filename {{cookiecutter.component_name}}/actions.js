@@ -3,7 +3,8 @@
 import keyMirror from 'keymirror';
 
 const
-	dumb = () => ({
+	dumb = payload => ({
+		payload,
 		type: types.DUMB_ACTION
 	}),
 
