@@ -12,12 +12,12 @@ import {compose} from 'recompose';
 
 {%- if cookiecutter.add_flow == "True" %}
 
-const
-	{{cookiecutter.component_name}} = (P: Props) => <div>
-	</div>;
-
 type Props = {
 };
+
+const
+	{{cookiecutter.component_name}} = (props: Props) => <div>
+	</div>;
 
 export default compose(
 	connect()
@@ -25,7 +25,7 @@ export default compose(
 {% else %}
 
 const
-	{{cookiecutter.component_name}} = P => <div>
+	{{cookiecutter.component_name}} = props => <div>
 	</div>;
 
 {{cookiecutter.component_name}}.propTypes = {
