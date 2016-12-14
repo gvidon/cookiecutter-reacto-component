@@ -20,7 +20,7 @@ const
 	</div>;
 
 export default compose(
-	connect()
+	connect(null)
 )({{cookiecutter.component_name}});
 {% else %}
 
@@ -32,6 +32,6 @@ const
 };
 
 export default compose(
-	connect()
+	connect(null)
 )({{cookiecutter.component_name}});
 {% endif -%}
