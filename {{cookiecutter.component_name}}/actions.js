@@ -1,15 +1,8 @@
 {%- if cookiecutter.add_flow == "True" %}// @flow
 {% endif -%}
-import keyMirror from 'keymirror';
+import {createAction} from 'redux-actions';
 
 const
-	dumb = payload => ({
-		payload,
-		type: types.DUMB_ACTION
-	}),
+	dumbAction = createAction('NEW_COMPONENT_DUMB_ACTION');
 
-	types = keyMirror({
-		DUMB_ACTION: null
-	});
-
-export default {dumb, types};
+export default {dumbAction};
