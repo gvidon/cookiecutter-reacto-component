@@ -7,28 +7,22 @@ import {connect} from 'react-redux';
 {% endif -%}
 {%- if cookiecutter.has_routes == "True" %}export {default as routes} from './routes';
 {% endif -%}
+{%- if cookiecutter.has_routes == "True" %}import {Route, Switch} from 'react-router-dom';
+{% endif -%}
 import React{% if cookiecutter.add_flow != "True" %}, {PropTypes}{% endif %} from 'react';
 import {compose} from 'recompose';
 
-{%- if cookiecutter.add_flow == "True" %}
-
 const
-	{{cookiecutter.component_name}} = (props: {}) => <div>
-	</div>;
+	{{cookiecutter.component_name}} = {% if cookiecutter.add_flow == "True" %}(props: {}){% else %}props{% endif %} => {% if cookiecutter.has_routes == "True" -%}<Switch>
+		<Route path="/" render={() => <div>This is dumb component</div>} />
+	</Switch>{%- else -%}<div>
+		This is dumb component
+	</div>{%- endif -%};
 
-export default compose(
-	connect(null)
-)({{cookiecutter.component_name}});
-{% else %}
-
-const
-	{{cookiecutter.component_name}} = props => <div>
-	</div>;
-
-{{cookiecutter.component_name}}.propTypes = {
+{% if cookiecutter.add_flow != "True" %}{{cookiecutter.component_name}}.propTypes = {
 };
 
+{% endif -%}
 export default compose(
 	connect(null)
 )({{cookiecutter.component_name}});
-{% endif -%}
