@@ -6,8 +6,6 @@ import {connect} from 'react-redux';
 {% endif -%}
 {%- if cookiecutter.has_reducers == "True" %}export {default as reducers} from './reducers';
 {% endif -%}
-{%- if cookiecutter.has_routes == "True" %}export {default as routes} from './routes';
-{% endif -%}
 {%- if cookiecutter.has_routes == "True" %}import {Route, Switch} from 'react-router-dom';
 {% endif -%}
 import React{% if cookiecutter.add_flow != "True" %}, {PropTypes}{% endif %} from 'react';
