@@ -1,4 +1,5 @@
 {%- if cookiecutter.add_flow == "True" %}// @flow
+import type {TDumb} from 'typedefs/dumb';
 {% endif -%}
 import {connect} from 'react-redux';
 {% if cookiecutter.has_actions == "True" %}export {default as actions} from './actions';
