@@ -1,4 +1,5 @@
 {
+	"add_dumb_type": true,
 	"add_flow": true,
 	"component_name": "",
 	"has_actions": false,
