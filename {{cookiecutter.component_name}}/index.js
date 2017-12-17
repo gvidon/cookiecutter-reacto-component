@@ -3,6 +3,7 @@
 import type {TDumb} from 'typedefs/dumb';
 {%- endif %}
 {% endif -%}
+import {compose} from 'recompose';
 import {connect} from 'react-redux';
 {% if cookiecutter.has_actions == "True" %}export {default as actions} from './actions';
 {% endif -%}
@@ -11,7 +12,6 @@ import {connect} from 'react-redux';
 {%- if cookiecutter.has_routes == "True" %}import {Route, Switch} from 'react-router-dom';
 {% endif -%}
 import React{% if cookiecutter.add_flow != "True" %}, {PropTypes}{% endif %} from 'react';
-import {compose} from 'recompose';
 
 const
 	{{cookiecutter.component_name}} = {% if cookiecutter.add_flow == "True" %}(props: {}){% else %}props{% endif %} => {% if cookiecutter.has_routes == "True" -%}<Switch>
@@ -25,5 +25,5 @@ const
 
 {% endif -%}
 export default compose(
-	connect(null)
+	connect(null),
 )({{cookiecutter.component_name}});
